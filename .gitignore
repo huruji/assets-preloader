@@ -118,3 +118,6 @@ typings/
 .vscode
 
 dist
+
+example/node_modules
+example/dist

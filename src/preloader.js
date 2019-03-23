@@ -23,7 +23,8 @@ export default class Loader {
       })
       img.addEventListener('error', (e) => {
         self.loadedNum++
-        self.emit('error', self.loadedNum / assets.length * 100)
+        self.emit('error', e)
+        self.emit('progress', self.loadedNum / assets.length * 100)
         resolve(img)
       })
     }))
@@ -38,8 +39,8 @@ export default class Loader {
 
   emit(name, ...args) {
     if (!Object.keys(this.events).includes(name)) return
-    for (let i = i; i < this.events[name].length; i++) {
-      this.events[name][i].call(this, args)
+    for (let i = 0; i < this.events[name].length; i++) {
+      this.events[name][i].apply(this, args)
     }
   }
 }

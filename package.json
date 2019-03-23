@@ -2,8 +2,12 @@
   "name": "assets-preloader",
   "version": "1.0.0",
   "description": "load web assets, like js, css, image, and return a promise",
-  "main": "index.js",
+  "main": "dist/preloader.js",
+  "umd:main": "dist/preloader.umd.js",
+  "module": "dist/preloader.mjs",
+  "source": "src/preloader.js",
   "scripts": {
+    "build": "microbundle build --entry src/preloader.js --output dist/preload.js",
     "release": "standard-version && git push --follow-tags origin master && npm publish",
     "release:first": "standard-version --first-release && git push --follow-tags origin master && npm publish",
     "release:major": "standard-version --release-as major && git push --follow-tags origin master && npm publish",
@@ -27,6 +31,11 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "microbundle": "^0.11.0",
     "standard-version": "^5.0.2"
-  }
+  },
+  "files": [
+    "dist/*.js",
+    "src"
+  ]
 }
