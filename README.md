@@ -1,4 +1,6 @@
-![](./logo.png)
+<p>
+<img src="./logo.png" width="300"/>
+<p>
 
 
 # preloader-assets
