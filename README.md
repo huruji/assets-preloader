@@ -76,3 +76,27 @@ Emited when asset loading completed, it's parameter is a progress number
 ### error
 
 Emited when asset loading error, it's parameter is an `Error`
+
+
+
+## How to build
+
+```js
+npm run build
+```
+
+## How to release
+
+`assets-preloader` is using `standard-version`
+
+```bash
+# release as a major version
+npm run release:major
+
+#release as a major version
+npm run release:minor
+
+#release as a patch version
+npm run release:patch
+
+```
