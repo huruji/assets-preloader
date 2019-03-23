@@ -1,4 +1,5 @@
 import 'primer-base'
+import { html, render } from 'lit-html'
 import Preloader from '../src/preloader'
 
 const imgs = [
@@ -32,16 +33,32 @@ const imgs = [
   'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553362934762&di=710dcb3acd8178efbb7d89ca5faa6585&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2F12d6330a38deddcd98b7a3061a80675123591772.png'
 ]
 
-const successPage = document.querySelector('.page.success')
-const loadingPage = document.querySelector('.page.loading')
+const renderSuccessPage = (style = 'none') => html`
+	<section class="page success" style="display:${style}">
+		<p>😘 😘 😘 <br />Loading succeed!</p>
+	</section>
+`
+
+const renderLoadingPage = data => html`
+	<section class="page loading">
+		<section class="title">Loading</section>
+		<section class="progress">${data.progress}</section>
+		<section class="progress-bar">
+			<section class="progress-line" style="width: ${data.width}"></section>
+		</section>
+	</section>
+`
+
+render(renderLoadingPage({ progress: '0%', width: 0 }), document.querySelector('.app'))
+render(renderSuccessPage(), document.querySelector('.app'))
+// const successPage = document.querySelector('.page.success')
+// const loadingPage = document.querySelector('.page.loading')
 
 const loader = new Preloader(imgs)
 
 loader.listen('progress', (val) => {
-  loadingPage.querySelector('.progress').innerHTML = `${val}%`
-  loadingPage.querySelector('.progress-line').style.width = `${val}%`
+  render(renderLoadingPage({ progress: `${val}%`, width: `${val}%` }), document.querySelector('.app'))
 })
 loader.load().then(() => {
-  loadingPage.style.display = 'none'
-  successPage.style.display = 'flex'
+  render(renderSuccessPage('flex'), document.querySelector('.app'))
 })
