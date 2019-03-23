@@ -57,7 +57,7 @@ render(renderSuccessPage(), document.querySelector('.app'))
 const loader = new Preloader(imgs)
 
 loader.listen('progress', (val) => {
-  render(renderLoadingPage({ progress: `${val}%`, width: `${val}%` }), document.querySelector('.app'))
+  render(renderLoadingPage({ progress: `${val.toFixed(2)}%`, width: `${val}%` }), document.querySelector('.app'))
 })
 loader.load().then(() => {
   render(renderSuccessPage('flex'), document.querySelector('.app'))
