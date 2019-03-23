@@ -9,7 +9,7 @@ load web assets, like js, css, image, and return a promise
 > notice: assets-preloader only support image assets now, other assets will be as features in next version
 ## example
 
-![](./example.gif)
+![](./preloader-example.gif)
 
 see [Example](./example/README.md)
 
