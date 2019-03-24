@@ -7,7 +7,7 @@
   "module": "dist/preloader.mjs",
   "source": "src/preloader.js",
   "scripts": {
-    "build": "microbundle build --entry src/preloader.js --output dist/preload.js",
+    "build": "microbundle build --entry src/preloader.js --output dist/preloader.js",
     "release": "standard-version && git push --follow-tags origin master && npm publish",
     "release:first": "standard-version --first-release && git push --follow-tags origin master && npm publish",
     "release:major": "standard-version --release-as major && git push --follow-tags origin master && npm publish",
