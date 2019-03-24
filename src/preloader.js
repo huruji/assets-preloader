@@ -18,13 +18,24 @@ export default class Loader {
       img.src = asset
       img.addEventListener('load', (e) => {
         self.loadedNum++
-        self.emit('progress', self.loadedNum / assets.length * 100)
+        const progress = self.loadedNum / assets.length * 100
+        self.emit('progress', progress)
+        if (self.onprogress && typeof self.onprogress === 'function') {
+          self.onprogress.call(this, progress)
+        }
         resolve(img)
       })
       img.addEventListener('error', (e) => {
         self.loadedNum++
+        const progress = self.loadedNum / assets.length * 100
         self.emit('error', e)
-        self.emit('progress', self.loadedNum / assets.length * 100)
+        if (self.onerror && typeof self.onerror === 'function') {
+          self.onerror.call(this, e)
+        }
+        self.emit('progress', progress)
+        if (self.onprogress && typeof self.onprogress === 'function') {
+          self.onprogress.call(this, progress)
+        }
         resolve(img)
       })
     }))
