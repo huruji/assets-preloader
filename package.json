@@ -1,6 +1,6 @@
 {
   "name": "assets-preloader",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "load web assets, like js, css, image, and return a promise",
   "main": "dist/preloader.js",
   "umd:main": "dist/preloader.umd.js",
