@@ -68,6 +68,9 @@ loader.listen('progress', (val) => {
 })
 ```
 
+### `.addEventListener`
+`alias` of `.listen`
+
 ## Events
 
 ### progress
@@ -79,6 +82,29 @@ Emited when asset loading completed, it's parameter is a progress number
 
 Emited when asset loading error, it's parameter is an `Error`
 
+
+**Listening event**: you can use `onprogress` or `listen` or `addEventListener`
+
+```js
+loader.listen('progress', (val) => {
+  // your code when progress events emited
+  // like: console.log(val)
+})
+
+// equal to
+
+loader.addEventListener('progress', (val) => {
+  // your code when progress events emited
+  // like: console.log(val)
+})
+
+// equal to
+
+loader.onprogress = (val) => {
+  // your code when progress events emited
+  // like: console.log(val)
+}
+```
 
 
 ## How to build
