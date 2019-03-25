@@ -55,3 +55,5 @@ export default class Loader {
     }
   }
 }
+
+Loader.prototype.addEventListener = Loader.prototype.listen
