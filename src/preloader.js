@@ -13,10 +13,10 @@ export default class Loader {
     const assets = self.assets
     if (!assets.length) return Promise.resolve()
 
-    const promiseLists = assets.map(asset => new Promise((resolve, reject) => {
+    const promiseLists = assets.map(asset => new Promise((resolve) => {
       const img = new Image()
       img.src = asset
-      img.addEventListener('load', (e) => {
+      img.addEventListener('load', () => {
         self.loadedNum++
         const progress = self.loadedNum / assets.length * 100
         self.emit('progress', progress)
