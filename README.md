@@ -71,6 +71,13 @@ loader.listen('progress', (val) => {
 ### `.addEventListener`
 `alias` of `.listen`
 
+### `.add`
+
+add asset to load
+
+```js
+loader.add('myasset.png')
+```
 ## Events
 
 ### progress
