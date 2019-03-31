@@ -1,6 +1,6 @@
 import 'primer-base'
 import { html, render } from 'lit-html'
-import Preloader from '../src/preloader'
+import Preloader from '../dist/preloader'
 
 const imgs = [
   'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553362222231&di=4f80a210225dde88b5618c731a1e246b&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F20181%2F22%2F201812213450_krXJB.jpeg',
