@@ -3,6 +3,8 @@ export interface EType {
   error: Function[]
 }
 
+export type Events = 'error' | 'progress'
+
 const EVENT_PROGRESS:string = 'progress'
 const EVENT_ERROR:string = 'error'
 const EVENT_LOAD:string = 'load'
@@ -60,7 +62,7 @@ export default class Loader {
     return Promise.all(promiseLists)
   }
 
-  listen(name:string, cb:Function):void{
+  listen(name:Events, cb:Function):void{
     if (!Object.keys(this.events).includes(name)) return
     this.events[name].push(cb)
   }
