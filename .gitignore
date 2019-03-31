@@ -121,3 +121,7 @@ dist
 
 example/node_modules
 example/dist
+
+# ts build cache
+
+.rts2*
